@@ -1,0 +1,61 @@
+<html>
+  <head>
+
+  	<title>비디오 뷰어</title>
+
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, 
+  maximum-scale=1.0, minimum-scale=1.0">
+
+
+  	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+
+
+    </style>
+
+
+  </head>
+  <body>
+
+
+    <div id="main"> 
+
+
+        <div class="monitor">
+          
+          <div class="wrapper">
+
+              <div class="folder_list">
+
+                <label class="title" style="text-align: left;">{{video}}</label>
+
+                <video src="/static/video/{{folder}}/{{video}}" controlsList="nodownload" controls="controls" width="640" height="480" style="width: 100%; height: 225%">
+                    <track kind="subtitles" src="/static/video/{{folder}}/{{subtitle}}" srclang="ko" label="한국어" default>
+                </video>
+
+
+                <a class="back" href="javascript:history.back();" style=""><p>←</p></a>
+
+              </div>
+
+          </div>
+
+
+            
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+  </body>
+
+</html>

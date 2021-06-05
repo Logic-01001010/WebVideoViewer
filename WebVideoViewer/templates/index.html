@@ -1,0 +1,75 @@
+<html>
+  <head>
+
+  	<title>비디오 뷰어</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+
+  </head>
+  <body>
+
+
+    <div id="main">	
+
+
+        <div class="monitor">
+          
+          <div class="wrapper">
+
+              <div class="folder_list">
+
+                <p class="title">폴더</p>
+
+                <select id="folder" size="6">
+
+                  {% for value in file_list %}
+                  <option value="{{value}}">📁 {{value}}</option>
+                  {% endfor %}
+
+                </select>
+
+                <input type="button" id="btnSubmit" value="이동"/>
+
+              </div>
+
+          </div>
+            
+        </div>
+
+
+
+
+    </div>
+
+
+  		<script type="text/javascript">
+  			 
+
+				$("#btnSubmit").on("click", function(){
+
+						var folder = $("#folder option:selected").val();
+
+            if(folder !=undefined)
+						  location.href = "list/" + folder;
+
+
+	
+
+				});
+
+
+
+
+  		</script>
+
+
+
+  </body>
+
+</html>

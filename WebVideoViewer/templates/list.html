@@ -1,0 +1,117 @@
+<html>
+  <head>
+
+  	<title>비디오 뷰어</title>
+
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, 
+  maximum-scale=1.0, minimum-scale=1.0">
+
+  	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+
+
+    </style>
+
+
+  </head>
+  <body>
+
+  	
+
+  
+  <div id="main"> 
+
+
+          <div class="monitor">
+            
+            <div class="wrapper">
+
+
+
+
+                <div class="folder_list">
+
+
+                      
+
+                      <div>
+
+                        <div style="float: left;">
+
+                            <p class="title">영상</p>
+                            <select id="video" size="6">
+
+                              {% for value in videos %}
+                              <option value="{{value}}">{{value}}</option>
+                              {% endfor %}
+
+                            </select>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="title">자막</p>
+                            <select id="subtitle" size="6">
+                              {% for value in subtitles %}
+                              <option value="{{value}}">{{value}}</option>
+                              {% endfor %}
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+              <input type="button" id="btnSubmit" value="이동"/>
+              <a class="back" href="/" style=""><p>←</p></a>
+
+            </div>
+              
+          </div>
+
+
+
+
+ 
+
+		</div>
+
+
+    </div>
+
+
+
+  		
+
+
+ 
+
+
+
+
+  		<script type="text/javascript">
+  			    
+
+				$("#btnSubmit").on("click", function(){
+
+						var video = $("#video option:selected").val();
+						var subtitle = $("#subtitle option:selected").val();
+
+						if(video != undefined)
+							location.href = "/video?" + "folder={{folder}}" + "&" + "video="+ video + "&" + "subtitle=" + subtitle;
+
+				});
+
+
+
+
+  		</script>
+
+
+
+  </body>
+
+</html>
